@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <NewArrivals />
+      <div>
+        <NewArrivals />
+      </div>
     </div>
   );
 };

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import motorLogo from "../assets/images/motoLogo.png";
 const Navbar = () => {
   return (
-    <nav className="bg-white border-b border-gray-200">
+    <nav className="bg-transparent absolute inset-x-0 top-0 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a
           href="https://bikebaazar.com"
           className="flex items-center space-x-3"
         >
-          <img src={motorLogo} className="h-8" alt="Motor Logo" />
+          <img src={motorLogo} className="h-8 bg-white" alt="Motor Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-900">
             Bike Baazar
           </span>
@@ -21,7 +21,7 @@ const Navbar = () => {
           </div> */}
 
           <div className="relative h-8 w-8 flex items-center justify-center">
-            <ShoppingCart className="w-6 h-6 text-gray-800" />
+            <ShoppingCart className="w-6 h-6  text-white" />
             <span className="absolute -top-3 right-1 text-xs bg-red-500 text-white rounded-full px-1">
               0
             </span>{" "}
@@ -56,7 +56,7 @@ const Navbar = () => {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-cta"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 md:flex-row md:mt-0 md:border-0  ">
             <li>
               <a
                 href="#"
@@ -69,7 +69,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                className="block py-2 px-3 md:p-0  rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 text-white"
               >
                 About
               </a>
@@ -77,7 +77,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                className="block py-2 px-3 md:p-0 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
               >
                 Services
               </a>
@@ -85,7 +85,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                className="block py-2 px-3 md:p-0 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
               >
                 Contact
               </a>
@@ -93,7 +93,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/dashboard"
-                className="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                className="block py-2 px-3 md:p-0 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
               >
                 Admin
               </Link>

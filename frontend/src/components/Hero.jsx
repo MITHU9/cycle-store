@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div
-      className="h-screen flex justify-center items-center"
+      className="h-screen flex justify-center items-center "
       style={{
         backgroundImage: "url('../src/assets/cycle-2.jpeg')",
         backgroundSize: "cover",
