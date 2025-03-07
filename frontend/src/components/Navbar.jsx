@@ -26,6 +26,31 @@ const Navbar = () => {
               0
             </span>{" "}
           </div>
+          <div className="flex items-center space-x-3 ml-3 md:space-x-3">
+            <button className="hidden md:block">
+              <Link
+                to="/login"
+                className="block py-2 px-3 md:p-0 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+              >
+                Login
+              </Link>
+            </button>
+            <button className="hidden md:block">
+              <Link
+                to="/register"
+                className="block py-2 px-3 md:p-0 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+              >
+                Register
+              </Link>
+            </button>
+          </div>
+          {/* <Link
+              to="/login"
+              className="block py-2 px-3 md:p-0 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+            >
+              Login
+            </Link>
+          </button> */}
 
           <button
             data-collapse-toggle="navbar-cta"
