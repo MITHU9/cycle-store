@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 import motorLogo from "../assets/images/motoLogo.png";
-
 const Navbar = () => {
   return (
     <nav className="bg-white border-b border-gray-200">
@@ -91,12 +91,12 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/dashboard"
                 className="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
               >
                 Admin
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
