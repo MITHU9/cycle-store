@@ -3,7 +3,7 @@ import React from "react";
 const NewArrivals = () => {
   const products = new Array(12).fill({
     title: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-    imgSrc: "../src/assets/mountain.jpg",
+    imgSrc: "/mountain.jpg",
     rating: 5,
     price: "$599",
   });

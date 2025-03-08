@@ -2,7 +2,7 @@ const MountainBikes = () => {
   return (
     <div
       style={{
-        backgroundImage: `url("../src/assets/mountain.jpg")`,
+        backgroundImage: `url("/mountain.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

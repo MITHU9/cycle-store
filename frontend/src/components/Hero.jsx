@@ -3,7 +3,7 @@ const Hero = () => {
     <div
       className="h-screen flex justify-center items-center "
       style={{
-        backgroundImage: "url('../src/assets/cycle-2.jpeg')",
+        backgroundImage: "url('/cycle-2.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
