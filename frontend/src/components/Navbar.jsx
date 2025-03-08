@@ -134,7 +134,7 @@ const Navbar = () => {
       </nav>
       {/* Cart Sidebar */}
       <div
-        className={`fixed z-50 inset-y-0 right-0 w-[30%] bg-white shadow-lg transform transition-transform duration-1700 
+        className={`fixed z-50 inset-y-0 right-0 w-[30%] bg-white shadow-lg transform transition-transform duration-300 
         ${isCartOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4 border-b">

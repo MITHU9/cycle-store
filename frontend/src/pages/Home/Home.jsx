@@ -1,6 +1,7 @@
 import React from "react";
 import NewArrivals from "./shared/NewArrivals";
 import Hero from "../../components/Hero";
+import MountainBikes from "../../components/MountainBikes";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <div>
         <NewArrivals />
+        <MountainBikes />
       </div>
     </div>
   );
