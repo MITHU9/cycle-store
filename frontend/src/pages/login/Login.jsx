@@ -58,7 +58,7 @@ const LoginPage = () => {
           <img
             src={bike}
             alt="Car at sunset"
-            className="object-cover rounded-3xl border-2 border-gray-700"
+            className="object-cover rounded-3xl border-2 border-gray-700 h-screen"
           />
           <div className="absolute inset-0 bg-gray-900/30 rounded-3xl" />
         </div>
