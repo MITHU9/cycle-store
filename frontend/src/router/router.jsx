@@ -5,6 +5,7 @@ import OverView from "../pages/Admin/Shared/Overview";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import LoginPage from "../pages/login/Login";
+import SignUpPage from "../pages/signup/SignUp";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignUpPage />,
   },
   {
     path: "/dashboard",
