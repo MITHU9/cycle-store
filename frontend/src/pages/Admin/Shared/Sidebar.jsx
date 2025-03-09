@@ -23,10 +23,10 @@ const SIDE_BAR = [
     href: "/dashboard/products",
   },
   {
-    name: "Users",
+    name: "Manage Product",
     icon: Users,
     color: "#6366f1",
-    href: "/users",
+    href: "/dashboard/manage",
   },
   {
     name: "Sales",
