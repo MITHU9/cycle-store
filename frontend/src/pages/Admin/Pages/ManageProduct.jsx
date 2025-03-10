@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Edit3, Trash2 } from "lucide-react";
+import { Edit3, Trash2, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,8 @@ const ManageProduct = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -27,11 +28,50 @@ const ManageProduct = () => {
     axios
       .delete(`http://localhost:5000/api/products/${id}`)
       .then((res) => {
-        console.log(res.data);
-        setAllProducts(allProducts.filter((product) => product._id !== id));
+        if (window.confirm("Are you sure you want to delete this product?")) {
+          setAllProducts(allProducts.filter((product) => product._id !== id));
+        }
       })
       .catch((err) => {
         console.error("Error deleting product:", err);
+      });
+  };
+
+  // Open modal and set selected product data
+  const openModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setSelectedProduct({ ...selectedProduct, [e.target.name]: e.target.value });
+  };
+
+  // Handle update
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    axios
+      .put(
+        `http://localhost:5000/api/products/${selectedProduct._id}`,
+        selectedProduct
+      )
+      .then(() => {
+        setAllProducts(
+          allProducts.map((product) =>
+            product._id === selectedProduct._id ? selectedProduct : product
+          )
+        );
+        closeModal();
+      })
+      .catch((err) => {
+        console.error("Error updating product:", err);
       });
   };
 
@@ -81,10 +121,10 @@ const ManageProduct = () => {
                   {product.title}
                 </td>
                 <td className="px-6 py-4">{product.description || "N/A"}</td>
-                <td className="px-6 py-4">${product.price}</td>
+                <td className="px-6 py-4">{product.price} BDT</td>
                 <td className="px-6 py-4 flex gap-3">
                   <Link
-                    to={`/admin/products/${product._id}`}
+                    onClick={() => openModal(product)}
                     className="text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     <Edit3 className="w-5 h-5" />
@@ -101,7 +141,6 @@ const ManageProduct = () => {
           </tbody>
         </table>
 
-        {/* Pagination Controls */}
         <div className="flex justify-center items-center mt-4 space-x-4">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -132,6 +171,59 @@ const ManageProduct = () => {
           </button>
         </div>
       </div>
+
+      {isModalOpen && selectedProduct && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className=" p-6 rounded-lg shadow-lg bg-indigo-950 max-w-xl w-full">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-semibold">Edit Product</h2>
+              <button
+                onClick={closeModal}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <form onSubmit={handleUpdate} className="mt-4 space-y-4">
+              <div>
+                <label className="block text-white mb-2">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={selectedProduct.title}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-white mb-2">Description</label>
+                <textarea
+                  name="description"
+                  value={selectedProduct.description}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-white mb-2">Price</label>
+                <input
+                  type="number"
+                  name="price"
+                  value={selectedProduct.price}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border rounded"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+              >
+                Update Product
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
