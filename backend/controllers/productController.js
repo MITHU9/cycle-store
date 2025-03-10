@@ -46,4 +46,18 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-export { addProduct, deleteProduct, getProducts };
+const updateProduct = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    const { title, description, price } = req.body;
+    product.title = title;
+    product.description = description;
+    product.price = price;
+    await product.save();
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export { addProduct, deleteProduct, getProducts, updateProduct };

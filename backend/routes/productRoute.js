@@ -7,6 +7,7 @@ import {
   addProduct,
   deleteProduct,
   getProducts,
+  updateProduct,
 } from "../controllers/productController.js";
 
 const storage = multer.diskStorage({
@@ -25,5 +26,6 @@ const upload = multer({
 router.post("/add", addProduct);
 router.get("/", getProducts);
 router.delete("/:id", deleteProduct);
+router.put("/:id", updateProduct);
 
 export default router;
